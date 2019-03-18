@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: hello-world-deployment
+  name: hello-world-pod
 spec:
   replicas: 2
   template:
@@ -11,6 +11,7 @@ spec:
     spec:     # pod spec                  
       containers: 
       - name: hello-world 
-        image:  # image we pushed in your contaieer registry
+        image: ibmdocker8te/node-js:v2 # image we pushed in your contaieer registry
         ports:
-        - containerPort: 3000
+        - name: nodejs-port
+          containerPort: 3000
